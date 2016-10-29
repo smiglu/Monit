@@ -1,0 +1,13 @@
+{
+  "name": "page-transitions",
+  "homepage": "https://github.com/codrops/PageTransitions",
+  "_release": "bc97b47848",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "bc97b47848c5ea0c7f265f67d6985a7ce81a9035"
+  },
+  "_source": "https://github.com/codrops/PageTransitions.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/codrops/PageTransitions.git"
+}

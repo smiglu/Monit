@@ -1,0 +1,5 @@
+.idea
+/bower_components
+/npm-debug.log
+/app/templates/client/public/javascripts/app.js
+node_modules

@@ -1,0 +1,12 @@
+body {
+    padding: 20px;
+
+}
+
+.nav, .pagination, .carousel, .panel-title a {
+    cursor: pointer;
+}
+
+a {
+    color: #00B7FF;
+}
