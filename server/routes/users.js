@@ -23,9 +23,6 @@ users.get('/', function (req, res, next) {
 
 
 users.post('/', function (req, res, next) {
-    console.log("jestem na serw?");
-    console.log(req.body);
-    console.log(res);
     var user = new User(req.body);
     user.save();
     res.send({
