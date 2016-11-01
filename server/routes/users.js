@@ -6,26 +6,32 @@ var users = express.Router();
 
 /* GET users listing. */
 users.get('/', function (req, res, next) {
-    var list = [
+    /*var list = [
         {name: 'Maciek'},
         {name: 'Marcin'}
     ];
 
-    res.json(list);
+    res.json(list);*/
 
     //uncomment if your mongoDB is running
 
-    //User.find(function (err, list) {
-    //    if (err) return next(err);
-    //    res.json(list);
-    //});
+    User.find(function (err, list) {
+        if (err) return next(err);
+        res.json(list);
+    });
 });
 
 
 users.post('/', function (req, res, next) {
+    console.log("jestem na serw?");
+    console.log(req.body);
+    console.log(res);
     var user = new User(req.body);
     user.save();
-    res.send({status: 'ok', req: req.body});
+    res.send({
+        status: 'ok',
+        req: req.body
+    });
 });
 
 module.exports = users;

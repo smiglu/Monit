@@ -1,4 +1,13 @@
 <div class="panel panel-default">
     <div class="panel-heading">This is ng-included template1.html:</div>
     <div class="panel-body" ng-include="'templates/template1.html'"></div>
+    <form ng-submit="addParam.myFunc(userForm.$valid)" name="userForm">
+        <label>Nazwa zadania</label>
+        <input type="text" class="form-control" placeholder="Nazwa zadania" ng-model="addParam.name" name="name" ng-minlength="3" ng-maxlength="25" required>
+        <p ng-show="userForm.name.$error.required" class="alert alert-danger">Opis jest wymagany.</p>
+        <p ng-show="userForm.name.$error.minlength" class="alert alert-danger">Opis jest za krótki.</p>
+        <p ng-show="userForm.name.$error.maxlength" class="alert alert-danger">Opis jest za długi.</p>
+        <p class="alert alert-warning">Przynajmniej 3 znaki, max 25</p>
+        <button type="submit" class="btn btn-default">dodaj zadanie</button>
+    </form>
 </div>

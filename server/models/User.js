@@ -5,7 +5,10 @@
 var mongoose = require('mongoose');
 
 var UserSchema = mongoose.Schema({
-    name: String
+    name: String,
+    date: Date
+}, {
+    versionKey: false // You should be aware of the outcome after set to false
 });
 
 module.exports = mongoose.model('User', UserSchema);

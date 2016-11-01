@@ -12,6 +12,7 @@ app.config(function ($routeProvider) {
         .when('/other', {
             controller: 'OtherCtrl',
             templateUrl: 'pages/other.html',
-            title: 'Other Page'
+            title: 'Other Page',
+            controllerAs: 'addParam'
         })
 });
