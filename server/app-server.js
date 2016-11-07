@@ -10,7 +10,7 @@ var users = require('./routes/users');
 
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/app', function (err) {
+mongoose.connect('mongodb://Hawi901:test1234@ds050189.mlab.com:50189/app', function (err) {
     if (err) {
         console.log('connection error', err);
     } else {

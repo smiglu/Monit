@@ -96,21 +96,13 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                         var data = [],
                             i;
 
-                        console.log("ile");
-                        console.log(new Date());
-                        console.log($scope.users[2]);
                         for (i = 0; i < $scope.users.length; i += 1) {
-                            console.log("co to?");
-                            console.log($scope.users[i].time);
                             var tajm = new Date($scope.users[i].date);
-                            console.log("moze tak?");
-                            console.log(tajm.getTime());
                             data.push([
                                 tajm.getTime(),
                                 parseInt($scope.users[i].name)
                             ]);
                         }
-                        console.log(data);
                         return data;
                     }())
                 }]

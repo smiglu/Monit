@@ -23,12 +23,26 @@ users.get('/', function (req, res, next) {
 
 
 users.post('/', function (req, res, next) {
-    var user = new User(req.body);
-    user.save();
-    res.send({
-        status: 'ok',
-        req: req.body
-    });
+    var name = req.url;
+    if (name.indexOf("name") != -1) {
+        var parameter = {
+            name: name.substr(7, name.length),
+            date: new Date()
+        };
+        var user = new User(parameter);
+        user.save();
+        res.send({
+            status: 'ok',
+            req: req.body
+        });
+    } else {
+        var user = new User(req.body);
+        user.save();
+        res.send({
+            status: 'ok',
+            req: req.body
+        });
+    }
 });
 
 module.exports = users;
