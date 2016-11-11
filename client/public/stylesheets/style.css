@@ -1,12 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
 body {
     padding: 20px;
-
+    background: url("../images/bg.jpg");
 }
 
-.nav, .pagination, .carousel, .panel-title a {
+.nav,
+.pagination,
+.carousel,
+.panel-title a {
     cursor: pointer;
 }
 
 a {
     color: #00B7FF;
+}
+
+nav {
+    font-family: 'Indie Flower', cursive;
+    font-size: 38px;
+}
+
+nav:hover {
+    background-color: transparent;
+}
+
+a:hover {
+    background-color: transparent;
 }

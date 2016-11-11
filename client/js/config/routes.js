@@ -15,4 +15,10 @@ app.config(function ($routeProvider) {
             title: 'Other Page',
             controllerAs: 'addParam'
         })
+        .when('/monit', {
+            controller: 'MonitCtrl',
+            templateUrl: 'pages/monit.html',
+            title: 'Monitoring',
+            controllerAs: 'monit'
+        })
 });
