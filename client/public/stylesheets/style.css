@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css');
 body {
     padding: 20px;
     background: url("../images/bg.jpg");
@@ -15,15 +16,22 @@ a {
     color: #00B7FF;
 }
 
-nav {
-    font-family: 'Indie Flower', cursive;
-    font-size: 38px;
-}
-
-nav:hover {
-    background-color: transparent;
-}
-
+a:focus,
 a:hover {
+    color: aliceblue;
+}
+
+nav {
+    font-family: 'Amatic SC', cursive;
+    font-size: 42px;
+}
+
+.nav>li>a:focus,
+.nav>li>a:hover {
     background-color: transparent;
+}
+
+pre {
+    overflow: auto;
+    height: 350px;
 }

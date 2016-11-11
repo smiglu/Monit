@@ -89,6 +89,7 @@ app.controller('MonitCtrl', function ($scope, $http, $location) {
     function myFunc(isValid) {
         makePost(vm.name);
         init();
+        vm.name = "";
     }
 
 
