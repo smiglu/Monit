@@ -27,11 +27,11 @@ app.controller('MonitCtrl', function ($scope, $http, $location) {
                     buttons: [{
                         count: 1,
                         type: 'minute',
-                        text: '15M'
+                        text: '1M'
                     }, {
                         count: 5,
                         type: 'minute',
-                        text: '5H'
+                        text: '5M'
                     }, {
                         type: 'all',
                         text: 'All'
@@ -59,8 +59,7 @@ app.controller('MonitCtrl', function ($scope, $http, $location) {
                             var tajm = new Date($scope.users[i].date);
                             data.push([
                                 tajm.getTime(),
-                                parseInt($scope.users[i].name),
-                                parseInt($scope.users[i].name) + 100
+                                parseInt($scope.users[i].name)
                             ]);
                         }
                         return data;
