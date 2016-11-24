@@ -40,7 +40,7 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
 
                     plotOptions: {
                         series: {
-                            compare: 'percent',
+                            //compare: 'percent',
                             showInNavigator: true
                         }
                     },
@@ -62,14 +62,14 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                     var tajm = new Date($scope.users[i2].date);
                     data.push([
                         tajm.getTime(),
-                        parseInt($scope.users[i2].name) + i * 10
+                        parseInt($scope.users[i2].name) + (i * 10)
                     ]);
-                    seriesOptions[i] = {
-                        name: name,
-                        data: data
-                    };
-                }
 
+                }
+                seriesOptions[i] = {
+                    name: name,
+                    data: data
+                };
 
 
                 // As we're loading the data asynchronously, we don't know what order it will arrive. So
