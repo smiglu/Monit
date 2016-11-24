@@ -211,21 +211,28 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
 
             $.each(names, function (i, name) {
 
-                $.getJSON('https://www.highcharts.com/samples/data/jsonp.php?filename=' + name.toLowerCase() + '-c.json&callback=?', function (data) {
-
+                for (i = 0; i < $scope.users.length; i += 1) {
+                    var tajm = new Date($scope.users[i].date);
+                    data.push([
+                        tajm.getTime(),
+                        parseInt($scope.users[i].name) + i * 10
+                    ]);
                     seriesOptions[i] = {
                         name: name,
                         data: data
                     };
+                }
 
-                    // As we're loading the data asynchronously, we don't know what order it will arrive. So
-                    // we keep a counter and create the chart when all the data is loaded.
-                    seriesCounter += 1;
 
-                    if (seriesCounter === names.length) {
-                        createChart();
-                    }
-                });
+
+                // As we're loading the data asynchronously, we don't know what order it will arrive. So
+                // we keep a counter and create the chart when all the data is loaded.
+                seriesCounter += 1;
+
+                if (seriesCounter === names.length) {
+                    createChart();
+                }
+
             });
 
         });
