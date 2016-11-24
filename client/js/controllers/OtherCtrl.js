@@ -57,6 +57,7 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
 
             $.each(names, function (i, name) {
 
+                var data = [];
                 for (i = 0; i < $scope.users.length; i += 1) {
                     var tajm = new Date($scope.users[i].date);
                     data.push([

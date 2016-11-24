@@ -11,34 +11,6 @@ var app = angular.module('app', [
 ]);
 
 /**
- * Created by Marcin on 2016-02-11.
- */
-/**
- * Created by Marcin on 2016-02-13.
- */
-
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            controller: 'HomeCtrl',
-            templateUrl: 'pages/home.html',
-            title: 'Home'
-        })
-        .when('/other', {
-            controller: 'OtherCtrl',
-            templateUrl: 'pages/other.html',
-            title: 'Other Page',
-            controllerAs: 'addParam'
-        })
-        .when('/monit', {
-            controller: 'MonitCtrl',
-            templateUrl: 'pages/monit.html',
-            title: 'Monitoring',
-            controllerAs: 'monit'
-        })
-});
-
-/**
  * Created by Marcin on 2016-02-12.
  */
 app.controller('HomeCtrl', function ($scope, $http) {
@@ -211,6 +183,7 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
 
             $.each(names, function (i, name) {
 
+                var data = [];
                 for (i = 0; i < $scope.users.length; i += 1) {
                     var tajm = new Date($scope.users[i].date);
                     data.push([
@@ -285,4 +258,32 @@ app.directive('acmeNavbar', function acmeNavbar() {
 
         // "vm.creationDate" is available by directive option "bindToController: true"
     }
+});
+
+/**
+ * Created by Marcin on 2016-02-11.
+ */
+/**
+ * Created by Marcin on 2016-02-13.
+ */
+
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            controller: 'HomeCtrl',
+            templateUrl: 'pages/home.html',
+            title: 'Home'
+        })
+        .when('/other', {
+            controller: 'OtherCtrl',
+            templateUrl: 'pages/other.html',
+            title: 'Other Page',
+            controllerAs: 'addParam'
+        })
+        .when('/monit', {
+            controller: 'MonitCtrl',
+            templateUrl: 'pages/monit.html',
+            title: 'Monitoring',
+            controllerAs: 'monit'
+        })
 });
