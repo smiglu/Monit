@@ -10,34 +10,6 @@ var app = angular.module('app', [
     'ui.bootstrap'
 ]);
 
-/**
- * Created by Marcin on 2016-02-11.
- */
-/**
- * Created by Marcin on 2016-02-13.
- */
-
-app.config(function ($routeProvider) {
-    $routeProvider
-        .when('/', {
-            controller: 'HomeCtrl',
-            templateUrl: 'pages/home.html',
-            title: 'Home'
-        })
-        .when('/other', {
-            controller: 'OtherCtrl',
-            templateUrl: 'pages/other.html',
-            title: 'Other Page',
-            controllerAs: 'addParam'
-        })
-        .when('/monit', {
-            controller: 'MonitCtrl',
-            templateUrl: 'pages/monit.html',
-            title: 'Monitoring',
-            controllerAs: 'monit'
-        })
-});
-
 app.directive('formGroup', function () {
     return {
         restrict: 'A',
@@ -277,7 +249,7 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                     var tajm = new Date($scope.users[i2].date);
                     data.push([
                         tajm.getTime(),
-                        parseInt($scope.users[i2].name) + (i * 10)
+                        parseInt($scope.users[i2].name) + (i * 100)
                     ]);
 
                 }
@@ -300,4 +272,32 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
         });
     }
 
+});
+
+/**
+ * Created by Marcin on 2016-02-11.
+ */
+/**
+ * Created by Marcin on 2016-02-13.
+ */
+
+app.config(function ($routeProvider) {
+    $routeProvider
+        .when('/', {
+            controller: 'HomeCtrl',
+            templateUrl: 'pages/home.html',
+            title: 'Home'
+        })
+        .when('/other', {
+            controller: 'OtherCtrl',
+            templateUrl: 'pages/other.html',
+            title: 'Other Page',
+            controllerAs: 'addParam'
+        })
+        .when('/monit', {
+            controller: 'MonitCtrl',
+            templateUrl: 'pages/monit.html',
+            title: 'Monitoring',
+            controllerAs: 'monit'
+        })
 });

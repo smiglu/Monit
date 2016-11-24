@@ -76,7 +76,7 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                     var tajm = new Date($scope.users[i2].date);
                     data.push([
                         tajm.getTime(),
-                        parseInt($scope.users[i2].name) + (i * 10)
+                        parseInt($scope.users[i2].name) + (i * 100)
                     ]);
 
                 }
