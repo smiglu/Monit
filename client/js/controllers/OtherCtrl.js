@@ -51,6 +51,10 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                             }]
                     },
 
+                    chart: {
+                        type: 'spline'
+                    },
+
                     plotOptions: {
                         series: {
                             //compare: 'percent',

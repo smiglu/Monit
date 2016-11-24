@@ -10,53 +10,6 @@ var app = angular.module('app', [
     'ui.bootstrap'
 ]);
 
-app.directive('formGroup', function () {
-    return {
-        restrict: 'A',
-        replace: false,
-        link: function (scope, elem, attrs) {
-
-            attrs.labelCol = attrs.labelCol || 3;
-            attrs.inputCol = attrs.inputCol || 9;
-
-            var element = angular.element(elem);
-
-            var tplOut = '<div class="form-group"></div>';
-
-            var tplIn = '<div class="col-sm-' + attrs.inputCol + '"></div>';
-
-            var label = '<label for="" class="col-sm-' + attrs.labelCol + ' control-label">' + attrs.formGroup + '</label>'
-
-            var el = element.wrap(tplOut).wrap(tplIn).parent().parent().prepend(label);
-
-            scope.$on("$destroy", function () {
-                el.remove();
-            });
-
-        }
-    };
-});
-app.directive('acmeNavbar', function acmeNavbar() {
-    var directive = {
-        restrict: 'E',
-        templateUrl: 'templates/navbar.html',
-        scope: {
-            creationDate: '='
-        },
-        controller: NavbarController,
-        controllerAs: 'vm',
-        bindToController: true
-    };
-
-    return directive;
-
-    function NavbarController() {
-        var vm = this;
-
-        // "vm.creationDate" is available by directive option "bindToController: true"
-    }
-});
-
 /**
  * Created by Marcin on 2016-02-12.
  */
@@ -224,6 +177,10 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
                             }]
                     },
 
+                    chart: {
+                        type: 'spline'
+                    },
+
                     plotOptions: {
                         series: {
                             //compare: 'percent',
@@ -300,4 +257,51 @@ app.config(function ($routeProvider) {
             title: 'Monitoring',
             controllerAs: 'monit'
         })
+});
+
+app.directive('formGroup', function () {
+    return {
+        restrict: 'A',
+        replace: false,
+        link: function (scope, elem, attrs) {
+
+            attrs.labelCol = attrs.labelCol || 3;
+            attrs.inputCol = attrs.inputCol || 9;
+
+            var element = angular.element(elem);
+
+            var tplOut = '<div class="form-group"></div>';
+
+            var tplIn = '<div class="col-sm-' + attrs.inputCol + '"></div>';
+
+            var label = '<label for="" class="col-sm-' + attrs.labelCol + ' control-label">' + attrs.formGroup + '</label>'
+
+            var el = element.wrap(tplOut).wrap(tplIn).parent().parent().prepend(label);
+
+            scope.$on("$destroy", function () {
+                el.remove();
+            });
+
+        }
+    };
+});
+app.directive('acmeNavbar', function acmeNavbar() {
+    var directive = {
+        restrict: 'E',
+        templateUrl: 'templates/navbar.html',
+        scope: {
+            creationDate: '='
+        },
+        controller: NavbarController,
+        controllerAs: 'vm',
+        bindToController: true
+    };
+
+    return directive;
+
+    function NavbarController() {
+        var vm = this;
+
+        // "vm.creationDate" is available by directive option "bindToController: true"
+    }
 });
