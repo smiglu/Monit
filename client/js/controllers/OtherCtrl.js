@@ -58,11 +58,11 @@ app.controller('OtherCtrl', function ($scope, $http, $location) {
             $.each(names, function (i, name) {
 
                 var data = [];
-                for (i = 0; i < $scope.users.length; i += 1) {
-                    var tajm = new Date($scope.users[i].date);
+                for (i = 0; i2 < $scope.users.length; i2 += 1) {
+                    var tajm = new Date($scope.users[i2].date);
                     data.push([
                         tajm.getTime(),
-                        parseInt($scope.users[i].name) + i * 10
+                        parseInt($scope.users[i2].name) + i * 10
                     ]);
                     seriesOptions[i] = {
                         name: name,
