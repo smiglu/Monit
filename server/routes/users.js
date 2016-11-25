@@ -12,13 +12,21 @@ users.get('/', function (req, res, next) {
     ];
 
     res.json(list);*/
-
     //uncomment if your mongoDB is running
+    var getParam = Object.keys(req.query);
+    if (getParam.length > 0) {
+        for (var key in req.query) {
+            if (req.query.hasOwnProperty(key)) {
+                console.log(key + " -> " + req.query[key]);
+            }
+        }
 
-    User.find(function (err, list) {
-        if (err) return next(err);
-        res.json(list);
-    });
+    } else {
+        User.find(function (err, list) {
+            if (err) return next(err);
+            res.json(list);
+        });
+    }
 });
 
 
