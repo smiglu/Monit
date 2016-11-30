@@ -1,11 +1,11 @@
 var express = require('express');
 var mongoose = require('mongoose');
-var User = require('../models/User.js');
+var Moisture = require('../models/Moisture.js');
 
-var users = express.Router();
+var moistures = express.Router();
 
-/* GET users listing. */
-users.get('/', function (req, res, next) {
+/* GET moistures listing. */
+moistures.get('/', function (req, res, next) {
     /*var list = [
         {name: 'Maciek'},
         {name: 'Marcin'}
@@ -13,7 +13,7 @@ users.get('/', function (req, res, next) {
 
     res.json(list);*/
     //uncomment if your mongoDB is running
-    console.log("Eloo2");
+    console.log("Eloo");
     var getParam = Object.keys(req.query);
     if (getParam.length > 0) {
         for (var key in req.query) {
@@ -23,7 +23,7 @@ users.get('/', function (req, res, next) {
         }
 
     } else {
-        User.find(function (err, list) {
+        Moisture.find(function (err, list) {
             if (err) return next(err);
             res.json(list);
         });
@@ -31,23 +31,23 @@ users.get('/', function (req, res, next) {
 });
 
 
-users.post('/', function (req, res, next) {
-    console.log("Eloo2");
+moistures.post('/', function (req, res, next) {
+    console.log("Eloo");
     var name = req.url;
     if (name.indexOf("name") != -1) {
         var parameter = {
             name: name.substr(7, name.length),
             date: new Date()
         };
-        var user = new User(parameter);
-        user.save();
+        var moisture = new moisture(parameter);
+        moisture.save();
         res.send({
             status: 'ok',
             req: req.body
         });
     } else {
-        var user = new User(req.body);
-        user.save();
+        var moisture = new Moisture(req.body);
+        moisture.save();
         res.send({
             status: 'ok',
             req: req.body
@@ -55,4 +55,4 @@ users.post('/', function (req, res, next) {
     }
 });
 
-module.exports = users;
+module.exports = moistures;

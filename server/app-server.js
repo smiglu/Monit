@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 
 
 var users = require('./routes/users');
+var moistures = require('./routes/moistures');
 
 var mongoose = require('mongoose');
 
@@ -39,6 +40,7 @@ app.use('/bower', express.static(path.join(__dirname, '../bower_components')));
 
 //app.use('/', routes);
 app.use('/users', users);
+app.use('/moistures', moistures);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
