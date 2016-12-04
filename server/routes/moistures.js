@@ -16,11 +16,36 @@ moistures.get('/', function (req, res, next) {
     console.log("Eloo");
     var getParam = Object.keys(req.query);
     if (getParam.length > 0) {
+        var parameter = {
+            moisture1: "0",
+            moisture2: "0",
+            moisture3: "0",
+            date: new Date()
+        };
+        console.log(parameter);
         for (var key in req.query) {
+            //for (i = 0; 1 < getParam.length; i++) {
             if (req.query.hasOwnProperty(key)) {
+                console.log("Eloszka");
                 console.log(key + " -> " + req.query[key]);
+                if (key === "moisture1") {
+                    parameter.moisture1 = req.query[key];
+                } else if (key === "moisture2") {
+                    parameter.moisture2 = req.query[key];
+                } else if (key === "moisture3") {
+                    parameter.moisture3 = req.query[key];
+                }
+
             }
         }
+        console.log(parameter);
+
+        var moisture = new Moisture(parameter);
+        moisture.save();
+        res.send({
+            status: 'ok',
+            req: req.body
+        })
 
     } else {
         Moisture.find(function (err, list) {

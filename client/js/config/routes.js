@@ -21,4 +21,10 @@ app.config(function ($routeProvider) {
             title: 'Monitoring',
             controllerAs: 'monit'
         })
+        .when('/moisture', {
+            controller: 'MoistureCtrl',
+            templateUrl: 'pages/moisture.html',
+            title: 'Wilgotnosc Gleby',
+            controllerAs: 'moisture'
+        })
 });
