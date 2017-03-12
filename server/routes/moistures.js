@@ -48,10 +48,7 @@ moistures.get('/', function (req, res, next) {
         })
 
     } else {
-
-        Moisture.find({}).sort({
-            date: -1
-        }).execFind(function (err, list) {
+        Moisture.find(function (err, list) {
             if (err) return next(err);
             res.json(list);
         });

@@ -8,9 +8,17 @@ app.controller('MoistureCtrl', function ($scope, $http, $location) {
 
     init();
 
+    function comp(a, b) {
+        return new Date(a.date).getTime() - new Date(b.date).getTime();
+    }
+
     function init() {
         $http.get('moistures').then(function (response) {
             $scope.moistures = response.data;
+
+            console.log("cos dziala?");
+
+            $scope.moistures.sort(comp);
 
             var seriesOptions = [],
                 seriesCounter = 0,
