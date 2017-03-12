@@ -14,7 +14,7 @@ app.controller('MoistureCtrl', function ($scope, $http, $location) {
 
             var seriesOptions = [],
                 seriesCounter = 0,
-                names = ['MSFT', 'AAPL', 'GOOG'];
+                names = ['CZ1', 'CZ2', 'CZ3'];
 
 
             function createChart() {
@@ -23,13 +23,13 @@ app.controller('MoistureCtrl', function ($scope, $http, $location) {
 
                     rangeSelector: {
                         buttons: [{
-                            count: 1,
-                            type: 'minute',
-                            text: '1M'
+                            count: 4,
+                            type: 'hour',
+                            text: '4H'
                         }, {
-                            count: 5,
-                            type: 'minute',
-                            text: '5M'
+                            count: 24,
+                            type: 'hour',
+                            text: '24H'
                         }, {
                             type: 'all',
                             text: 'All'
